@@ -1,0 +1,46 @@
+.pill{
+    border: none;
+    width:6rem;
+    padding: 0.393rem 0.886rem;
+    border-radius: 1.5rem;
+    height: 34px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 900;
+    margin:0 5px;
+    background: none;
+}
+
+
+
+.pill:hover{
+    width:7rem;
+    height: 38px;
+    transition: all 0.5s ease-in-out;
+    background-color: rgba(29, 27, 27, 0.63);
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid black;
+    margin:0 10px;
+
+}
+
+
+.pillFocused{
+    width:7rem;
+    height: 38px;
+    transition: all 0.5s ease-in-out;
+    background-color: rgba(29, 27, 27, 0.63);
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgb(255, 255, 255);
+    margin:0 10px;
+    border-radius: 1.5rem;
+}
+
+.pill:active{
+    width:7rem;
+    height: 38px;
+    transition: all 0.5s ease-in-out;
+    background-color:white;
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+    margin:0 10px;
+}

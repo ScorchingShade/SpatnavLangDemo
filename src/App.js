@@ -1,24 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import Lang from "./components/lang";
+import Pill from "./components/pill";
+import { initNavigation } from "@noriginmedia/react-spatial-navigation";
+import { withFocusable } from "@noriginmedia/react-spatial-navigation";
+import { useEffect } from "react";
+
+initNavigation({ debug: false, visualDebug: false });
+
+const FocusableComponent = withFocusable({ trackChildren: true })(
+  ({ setFocus, children }) => {
+    useEffect(() => {
+      setFocus();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    return <div>{children}</div>;
+  }
+);
+
+const languagesArray = [
+  "English",
+  "हिंदी",
+  "Tamil",
+  "Telgu",
+  "Malayalam",
+  "Gujrati",
+  "ಕನ್ನಡ",
+  "Spanish",
+  "German",
+  "Italian",
+  "Korean",
+  "Odia",
+  "Arabic",
+  "Bengali",
+  "Portuguese",
+  "Russian",
+  "Japanese",
+  "French",
+  "Chinese",
+  "Polish",
+  "Turkish",
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FocusableComponent>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "black",
+          width: "100vw",
+          height: "100vh",
+        }}
+      >
+        <Pill language="english" focused></Pill>
+        <br></br>
+        <br></br>
+
+        <Lang languagesArray={languagesArray} focused={true}/>
+      </div>
+    </FocusableComponent>
   );
 }
 
